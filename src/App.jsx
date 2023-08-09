@@ -1,7 +1,9 @@
-import './App.css'
+import './App.css';
+import TaskField from './components/TaskField';
+import TodoPage from './pages/TodoPage';
 
 function App () {
-  return <></>
+  return <TodoPage />;
 }
 
-export default App
+export default App;

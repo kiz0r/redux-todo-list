@@ -1,0 +1,60 @@
+$renameBtnBg: #00A7DC
+$deleteBtnBg: #DC0000
+$checkBtnBg: #00DC59
+  
+.tasksList
+  margin: 1em 0
+  display: flex
+  justify-content: center
+  flex-direction: column
+  width:100%
+  min-width: 320px
+  max-width: 600px
+  li
+    padding: 1.5em
+    gap: 1em
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    min-width: inherit
+    max-width: inherit
+    width:100%
+    border: 1px solid #a4a4a4
+    border-collapse: collapse
+    flex-wrap: wrap
+    &:nth-child(odd)
+      background-color: #DBDCDD
+    &:nth-child(even)
+      border-top: none
+      border-bottom: none
+    &:last-child
+      border-bottom: 1px solid #a4a4a4
+
+.task
+  font-size: inherit
+
+.btnWrapper
+  display: flex
+  gap: 0.5em
+  margin-left: auto
+
+.btn
+  display: flex
+  place-items: center
+  padding: 0.3em
+  border-radius: 0.3em
+  border: none
+  color: #ffffff
+  font-size: inherit
+  cursor: pointer
+  font-weight: 500
+  transition: .7s all ease
+  &:hover
+    background-color: #000
+
+.renameBtn
+  background-color: $renameBtnBg
+.deleteBtn
+  background-color: $deleteBtnBg
+.checkBtn
+  background-color: $checkBtnBg
