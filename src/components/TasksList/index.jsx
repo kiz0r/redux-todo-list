@@ -15,6 +15,17 @@ import {
 } from 'react-icons/md';
 import styles from './TasksList.module.sass';
 import classNames from 'classnames';
+import { Formik } from 'formik';
+import { TASK_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas';
+import Input from '../Input';
+
+/*
+    TODO :
+  * - input -> formikInput
+  ! - normalize fonts 
+  ! - add adaptive for mobiles
+  ! - make constants and replace them to constants.sass
+*/
 
 const TasksList = ({
   tasks,
@@ -50,12 +61,12 @@ const TasksList = ({
             }}
           >
             {editingTaskId === t.id ? (
-              <input
-                type='text'
-                value={t.task}
-                onChange={e => editTaskHandler(t.id, e.target.value)}
-                autoFocus
-              />
+              <Formik
+                initialValues={{ task: t.task }}
+                validationSchema={TASK_VALIDATION_SCHEMA}
+              >
+                <Input name='task' autoFocus />
+              </Formik>
             ) : (
               <>
                 {index + 1}. {t.task}

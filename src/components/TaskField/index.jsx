@@ -2,23 +2,25 @@ import { connect } from 'react-redux';
 import { addTask } from '../../store/slices/todoSlice';
 import { Field, Form, Formik } from 'formik';
 import Button from '../ui/Button';
-import { TASK_VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas';
+import { TASK_VALIDATION_SCHEMA as VALIDATION_SCHEMA } from '../../utils/validate/validationSchemas';
 import styles from './TaskField.module.sass';
+import Input from '../Input';
 
 const TaskField = ({ newTask }) => {
   const submitFormHandler = (task, formikBag) => {
     newTask(task);
     formikBag.resetForm();
   };
+
   return (
     <Formik
       initialValues={{ task: '' }}
       onSubmit={submitFormHandler}
-      validationSchema={TASK_VALIDATION_SCHEMA}
+      validationSchema={VALIDATION_SCHEMA}
     >
       {formikProps => (
         <Form className={styles.form}>
-          <Field name='task' />
+          <Input name='task' requiresValidation />
           <Button type='submit'>Add</Button>
         </Form>
       )}
